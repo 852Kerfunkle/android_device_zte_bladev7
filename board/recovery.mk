@@ -41,8 +41,9 @@ TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
 
 # TWRP.fstab
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/recovery.fstab
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/recovery.fstab
+#TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/twrp.fstab
 
 # Time Zone data for Recovery
 PRODUCT_COPY_FILES += \
