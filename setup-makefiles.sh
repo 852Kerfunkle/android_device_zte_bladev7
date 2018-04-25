@@ -26,13 +26,26 @@ PRODUCT_COPY_FILES += \\
 EOF
 
 LINEEND=" \\"
-COUNT=`cat proprietary-blobs.txt | grep -v ^# | grep -v ^$ | wc -l | awk {'print $1'}`
-for FILE in `cat proprietary-blobs.txt | grep -v ^# | grep -v ^$`; do
-COUNT=`expr $COUNT - 1`
-    if [ $COUNT = "0" ]; then
-LINEEND=""
+FILES=$(eval echo `egrep -v '(^#|^$)' ../../../$OUTDIR/proprietary-blobs.txt`)
+COUNT=`echo $FILES | wc -w`
+
+for FILE in $FILES; do
+  COUNT=`expr $COUNT - 1`
+  if [ $COUNT = "0" ]; then
+    LINEEND=""
+  fi
+  # Split the file from the destination (format is "file[:destination]")
+  OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+  if [[ ! "$FILE" =~ ^-.* ]]; then
+    FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
+    DEST=${PARSING_ARRAY[1]}
+    if [ -n "$DEST" ]; then
+      FILE=$DEST
     fi
-echo " $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
+    if [ -f ../../../$OUTDIR/proprietary/$FILE ]; then
+        echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
+    fi
+  fi
 done
 
 (cat << EOF) > ../../../$OUTDIR/$DEVICE-vendor.mk
