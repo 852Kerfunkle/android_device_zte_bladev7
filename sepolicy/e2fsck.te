@@ -1,0 +1,27 @@
+# ==============================================
+# Policy File of /system/bin/e2fsck Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type e2fsck, domain;
+type e2fsck_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : tune /data.
+init_daemon_domain(e2fsck)
+
+allow e2fsck cache_block_device:blk_file rw_file_perms;
+allow e2fsck protect1_block_device:blk_file rw_file_perms;
+allow e2fsck protect2_block_device:blk_file rw_file_perms;
+allow e2fsck block_device:dir search;
+
+# for Nougat
+allow e2fsck proc:file r_file_perms;
+allow e2fsck rootfs:lnk_file { getattr };
+
