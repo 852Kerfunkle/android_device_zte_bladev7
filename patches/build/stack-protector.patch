@@ -1,0 +1,100 @@
+diff --git a/core/clang/HOST_x86_common.mk b/core/clang/HOST_x86_common.mk
+index 690c0f6..d70ff89 100644
+--- a/core/clang/HOST_x86_common.mk
++++ b/core/clang/HOST_x86_common.mk
+@@ -7,7 +7,7 @@ CLANG_CONFIG_x86_DARWIN_HOST_EXTRA_ASFLAGS := \
+ CLANG_CONFIG_x86_DARWIN_HOST_EXTRA_CFLAGS := \
+   -integrated-as
+ 
+-CLANG_CONFIG_x86_DARWIN_HOST_EXTRA_CFLAGS += -fstack-protector-strong
++CLANG_CONFIG_x86_DARWIN_HOST_EXTRA_CFLAGS += -fstack-protector
+ endif
+ 
+ ifeq ($(HOST_OS),linux)
+@@ -19,7 +19,7 @@ CLANG_CONFIG_x86_LINUX_HOST_EXTRA_ASFLAGS := \
+ CLANG_CONFIG_x86_LINUX_HOST_EXTRA_CFLAGS := \
+   --gcc-toolchain=$($(clang_2nd_arch_prefix)HOST_TOOLCHAIN_FOR_CLANG)
+ 
+-CLANG_CONFIG_x86_LINUX_HOST_EXTRA_CFLAGS += -fstack-protector-strong
++CLANG_CONFIG_x86_LINUX_HOST_EXTRA_CFLAGS += -fstack-protector
+ 
+ ifneq ($(strip $($(clang_2nd_arch_prefix)HOST_IS_64_BIT)),)
+ CLANG_CONFIG_x86_LINUX_HOST_EXTRA_CPPFLAGS := \
+diff --git a/core/combo/TARGET_linux-arm.mk b/core/combo/TARGET_linux-arm.mk
+index 510aae5..b91e072 100644
+--- a/core/combo/TARGET_linux-arm.mk
++++ b/core/combo/TARGET_linux-arm.mk
+@@ -101,7 +101,7 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
+ 			-ffunction-sections \
+ 			-fdata-sections \
+ 			-funwind-tables \
+-			-fstack-protector-strong \
++			-fstack-protector \
+ 			-Wa,--noexecstack \
+ 			-Werror=format-security \
+ 			-D_FORTIFY_SOURCE=2 \
+diff --git a/core/combo/TARGET_linux-arm64.mk b/core/combo/TARGET_linux-arm64.mk
+index 6a1d861..bc89bc9 100644
+--- a/core/combo/TARGET_linux-arm64.mk
++++ b/core/combo/TARGET_linux-arm64.mk
+@@ -75,7 +75,7 @@ TARGET_GLOBAL_CFLAGS += \
+     -fno-strict-aliasing \
+ 
+ TARGET_GLOBAL_CFLAGS += \
+-			-fstack-protector-strong \
++			-fstack-protector \
+ 			-ffunction-sections \
+ 			-fdata-sections \
+ 			-funwind-tables \
+diff --git a/core/combo/TARGET_linux-mips.mk b/core/combo/TARGET_linux-mips.mk
+index 186d88f..7c45bad 100644
+--- a/core/combo/TARGET_linux-mips.mk
++++ b/core/combo/TARGET_linux-mips.mk
+@@ -89,7 +89,7 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
+ 			-ffunction-sections \
+ 			-fdata-sections \
+ 			-funwind-tables \
+-			-fstack-protector-strong \
++			-fstack-protector \
+ 			-Wa,--noexecstack \
+ 			-Werror=format-security \
+ 			-D_FORTIFY_SOURCE=2 \
+diff --git a/core/combo/TARGET_linux-mips64.mk b/core/combo/TARGET_linux-mips64.mk
+index 3e1f61a..4b7df50 100644
+--- a/core/combo/TARGET_linux-mips64.mk
++++ b/core/combo/TARGET_linux-mips64.mk
+@@ -89,7 +89,7 @@ TARGET_GLOBAL_CFLAGS += \
+ 			-ffunction-sections \
+ 			-fdata-sections \
+ 			-funwind-tables \
+-			-fstack-protector-strong \
++			-fstack-protector \
+ 			-Wa,--noexecstack \
+ 			-Werror=format-security \
+ 			-D_FORTIFY_SOURCE=2 \
+diff --git a/core/combo/TARGET_linux-x86.mk b/core/combo/TARGET_linux-x86.mk
+index 558ec3b..7d2b6de 100644
+--- a/core/combo/TARGET_linux-x86.mk
++++ b/core/combo/TARGET_linux-x86.mk
+@@ -94,7 +94,7 @@ $(combo_2nd_arch_prefix)TARGET_GLOBAL_CFLAGS += \
+ 			-fstrict-aliasing \
+ 			-funswitch-loops \
+ 			-funwind-tables \
+-			-fstack-protector-strong \
++			-fstack-protector \
+ 			-m32 \
+ 			-no-canonical-prefixes \
+ 			-fno-canonical-system-headers \
+diff --git a/core/combo/TARGET_linux-x86_64.mk b/core/combo/TARGET_linux-x86_64.mk
+index 12166ec..81fafdd 100644
+--- a/core/combo/TARGET_linux-x86_64.mk
++++ b/core/combo/TARGET_linux-x86_64.mk
+@@ -94,7 +94,7 @@ TARGET_GLOBAL_CFLAGS += \
+ 			-fstrict-aliasing \
+ 			-funswitch-loops \
+ 			-funwind-tables \
+-			-fstack-protector-strong \
++			-fstack-protector \
+ 			-m64 \
+ 			-no-canonical-prefixes \
+ 			-fno-canonical-system-headers
