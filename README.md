@@ -33,6 +33,7 @@ Front Camera | 5MP
  * Audio
  * Auto brightness
  * Bluetooth (probably)
+ * Flashlight (statusbar and camera)
  * GPS
  * Hardware acceleration
  * MTP and Mass Storage modes
@@ -48,8 +49,7 @@ Front Camera | 5MP
 ## Broken/Bugs
  * Enforcing SELinux
  * Some sensors probably broken
- * Flashlight (statusbar and camera)
- * Camera
+ * Camera (works but video recording doesn't)
 
 
 
