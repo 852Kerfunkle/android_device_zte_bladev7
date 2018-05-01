@@ -49,7 +49,7 @@ Front Camera | 5MP
 ## Broken/Bugs
  * Enforcing SELinux
  * Some sensors probably broken
- * Camera (works but video recording doesn't)
+ * Camera (works but cant take pictures/video)
 
 
 
