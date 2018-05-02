@@ -7,5 +7,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
 	$(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
 	$(LOCAL_PATH)/rootdir/init.recovery.mt6735.rc:root/init.recovery.mt6735.rc \
-	$(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh
+	$(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh \
+	$(LOCAL_PATH)/rootdir/init/mediaserver.rc:system/etc/init/mediaserver.rc
 
