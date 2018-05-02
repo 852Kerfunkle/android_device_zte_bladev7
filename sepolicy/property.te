@@ -192,3 +192,5 @@ type mtk_em_auto_answer_prop, property_type;
 #=============allow smart audio pa set property ==============
 type smart_audio_prop, property_type;
 
+#=============bwc.mm prop =============
+type bwc_mm_prop, property_type;

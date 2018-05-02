@@ -72,7 +72,7 @@ allow dm_agent_binder init:unix_stream_socket connectto;
 # Operation : QC
 # Purpose : [Privacy protection lock][dm_agent_binder call FileOp_BackupToBinRegionForDM to do nvram backup] 
 allow dm_agent_binder nvram_device:blk_file rw_file_perms;
-allow dm_agent_binder para_block_device:blk_file rw_file_perms;
+allow dm_agent_binder misc_block_device:blk_file rw_file_perms;
 allow dm_agent_binder mmcblk0_block_device:blk_file rw_file_perms;
 
 # Date : WK14.42

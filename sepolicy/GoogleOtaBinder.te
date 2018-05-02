@@ -33,7 +33,7 @@ binder_service(GoogleOtaBinder)
 
 allow GoogleOtaBinder ota_agent_service:service_manager add;
 # /dev/block/mmcblko
-allow GoogleOtaBinder para_block_device:blk_file { write read open };
+allow GoogleOtaBinder misc_block_device:blk_file { write read open };
 allow GoogleOtaBinder mmcblk0_block_device:blk_file { write read open };
 
 allow GoogleOtaBinder block_device:dir search;

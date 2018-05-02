@@ -42,7 +42,7 @@ allow mtkrild proc_net:file write;
 allow mtkrild eemcs_device:chr_file { read write };
 allow mtkrild eemcs_device:chr_file open;
 allow mtkrild eemcs_device:chr_file ioctl;
-allow mtkrild para_block_device:blk_file { read write open};
+allow mtkrild misc_block_device:blk_file { read write open};
 
 # property service
 allow mtkrild radio_prop:property_service set;

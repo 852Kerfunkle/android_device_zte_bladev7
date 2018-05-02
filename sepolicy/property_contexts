@@ -205,3 +205,6 @@ persist.auto_answer   u:object_r:mtk_em_auto_answer_prop:s0
 
 #=============allow smart audio pa  deamon  ==============
 smart_audio.        u:object_r:smart_audio_prop:s0
+
+#=============bwc.mm prop =============
+bwc.mm.      u:object_r:bwc_mm_prop:s0

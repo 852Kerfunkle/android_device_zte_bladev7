@@ -168,7 +168,6 @@ type lens_device, dev_type;
 type nvdata_device, dev_type;
 type expdb_block_device, dev_type;
 type logo_block_device, dev_type;
-type para_block_device, dev_type;
 type tee_block_device, dev_type;
 type seccfg_block_device, dev_type;
 type ztecfg_block_device, dev_type;

@@ -53,7 +53,7 @@ allow ipod mmcblk0_block_device:blk_file rw_file_perms;
 allow ipod userdata_block_device:blk_file rw_file_perms;
 allow ipod cache_block_device:blk_file rw_file_perms;
 allow ipod logo_block_device:blk_file { read open };
-allow ipod para_block_device:blk_file rw_file_perms;
+allow ipod misc_block_device:blk_file rw_file_perms;
 
 allow ipod self:capability dac_override;
 allow ipod self:capability net_admin;

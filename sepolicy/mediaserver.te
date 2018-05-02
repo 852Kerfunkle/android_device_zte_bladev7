@@ -434,3 +434,6 @@ allow mediaserver tfa9890_device:chr_file { open read write ioctl };
 # Nougat
 allow mediaserver proc:file { read open ioctl };
 allow mediaserver sysfs:file { read open };
+
+allow mediaserver bw_ctrl_scenario:file { open write };
+allow mediaserver bwc_mm_prop:property_service set;

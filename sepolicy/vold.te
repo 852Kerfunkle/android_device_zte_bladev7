@@ -15,7 +15,7 @@ allow vold nvram_device:chr_file { read write open };
 #allow vold platformblk_device:dir search;
 allow vold nvram_device:blk_file rw_file_perms;
 allow vold userdata_block_device:blk_file create_file_perms;
-allow vold para_block_device:blk_file rw_file_perms;
+allow vold misc_block_device:blk_file rw_file_perms;
 allow vold metadata_block_device:blk_file rw_file_perms;
 allow vold mmcblk0_block_device:blk_file rw_file_perms;
 #allow vold recovery_block_device:blk_file rw_file_perms;
