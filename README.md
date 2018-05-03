@@ -1,7 +1,7 @@
 # ZTE Blade V7 - LineageOS 14.1
 ==============
 
-This branch is device for building of the LineageOS 14.1 ROM. For more information about building the ROM, read our [build manual](manual).
+This branch is device for building of the LineageOS 14.1 ROM. For more information about building the ROM, read the [build manual](manual).
 
 ---
 
