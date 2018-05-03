@@ -1,26 +1,31 @@
-How to make a patches after changes in LineageOS source code:
-
-Cd working_dir (For example: cd lineage/frameworks/base)
-git status
-git add .
-git commit -m "name of patch"
-git show HEAD > 0001_.patch
-
 How to launch the LineageOS 14.1 build:
 
-Download vendor and device from my GitHub.
-Create dirs zte/bladev7 and place them in working_dir/device and in working_dir/vendor
-After copy files from downloaded device in working_dir/device , and from downloaded vendor in working_dir/vendor
-Open terminal and write:
+1) Add these repositories to your roomservice.xml:
 
-cd working_dir
+  <project name="852Kerfunkle/android_device_zte_bladev7" path="device/zte/bladev7" remote="github" revision="master" />
+  <project name="852Kerfunkle/android_vendor_zte_bladev7" path="vendor/zte/bladev7" remote="github" revision="master" />
 
-export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
+2) sync.
+
+3) Run these commands to patch lineage and to get the vendor blobs from your phone:
 
 ./device/zte/bladev7/patches/install.sh
 
-. build/envsetup.sh
+(from devices/zte/bladev7)
+To extract vendor blobs from device via adb:
 
-lunch lineage_bladev7-userdebug && make bacon -j10
+./extract-files.sh
 
-Wait for the build to finish, for me ~5hr
+or, to extract vendor blobs from a mounted system image:
+
+./extract-files.sh /path/to/system/image/mount
+
+4) Build LineageOS
+
+source build/envsetup.sh
+
+lunch lineage_bladev7-userdebug
+
+make bacon -j16
+
+Wait for the build to finish.
