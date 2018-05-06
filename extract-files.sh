@@ -32,20 +32,27 @@ function extract() {
       if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
       fi
-      # Try CM target first
-      if [ "$SRC" = "adb" ]; then
-        adb pull /system/$DEST $BASE/$DEST
-        # if file does not exist try OEM target
-        if [ "$?" != "0" ]; then
-            adb pull /system/$FILE $BASE/$DEST
-        fi
+      # check if this file exists in fixed_libs
+      MODFILE=$BASE/../fixed_libs/$DEST
+      if [ -f $MODFILE ]; then
+        echo ":: $FILE :: from fixed_libs"
+            cp $MODFILE $BASE/$DEST
       else
-        if [ -z $SRC/$DEST ]; then
+        # get file from device or disk
+        if [ "$SRC" = "adb" ]; then
+          adb pull /system/$DEST $BASE/$DEST
+          # if file does not exist try OEM target
+          if [ "$?" != "0" ]; then
+            adb pull /system/$FILE $BASE/$DEST
+          fi
+        else
+          if [ -z $SRC/$DEST ]; then
             echo ":: $DEST"
             cp $SRC/$DEST $BASE/$DEST
-        else
+          else
             echo ":: $FILE"
             cp $SRC/$FILE $BASE/$DEST
+          fi
         fi
       fi
     done
