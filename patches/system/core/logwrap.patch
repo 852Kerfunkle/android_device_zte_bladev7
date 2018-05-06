@@ -1,0 +1,22 @@
+diff --git a/logwrapper/include/logwrap/logwrap.h b/logwrapper/include/logwrap/logwrap.h
+index 89a8fdd..fd7a5d3 100644
+--- a/logwrapper/include/logwrap/logwrap.h
++++ b/logwrapper/include/logwrap/logwrap.h
+@@ -97,6 +97,17 @@ int android_fork_execvp_ext(int argc, char* argv[], int *status, bool ignore_int
+         int log_target, bool abbreviated, char *file_path,
+         const struct AndroidForkExecvpOption* opts, size_t opts_len);
+ 
++/* Add a legacy android_fork_execvp_ext fucntion without AndroidForkExecvpOption with
++ * a name of the same length so it's easy to replace in symbol tables.
++ * */
++int android_fork_exvp_legac(int argc, char* argv[], int *status, bool ignore_int_quit,
++        int log_target, bool abbreviated, char *file_path)
++{
++    return android_fork_execvp_ext(argc, argv, status, ignore_int_quit,
++                            log_target, abbreviated, file_path,
++                            NULL, 0);
++}
++
+ /* Similar to above, except abbreviated logging is not available, and if logwrap
+  * is true, logging is to the Android system log, and if false, there is no
+  * logging.

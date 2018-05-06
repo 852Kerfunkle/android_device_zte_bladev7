@@ -21,7 +21,7 @@ index 68cfcbe00..f19238606 100644
      /* Support FIFO scheduling mode in SurfaceFlinger. */
 -    { 00755, AID_SYSTEM,    AID_GRAPHICS,     CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
 +    /* Disabled for now as this caused LD_PRELOAD and LD_SHIM_LIBS to be sanitized in linker */
-+    //{ 00755, AID_SYSTEM,    AID_GRAPHICS,     CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
++    { 00755, AID_SYSTEM,    AID_GRAPHICS,  0, "system/bin/surfaceflinger" },
  
      { 00750, AID_ROOT,      AID_ROOT,      0, "system/bin/uncrypt" },
      { 00750, AID_ROOT,      AID_ROOT,      0, "system/bin/install-recovery.sh" },
